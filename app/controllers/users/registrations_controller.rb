@@ -21,9 +21,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # PUT /resource
   def update
-    # Call the parent Devise method to perform the default update action
     super do |resource|
-      # If the new password and confirmation fields are blank, add an error
       if params[:user][:password].blank? || params[:user][:password_confirmation].blank?
         resource.errors.add(:password, "can't be blank")
       end
