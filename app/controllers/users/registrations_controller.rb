@@ -19,13 +19,9 @@ module Users
     # end
 
     # PUT /resource
-    def update
-      super do |resource|
-        if params[:user][:password].blank? || params[:user][:password_confirmation].blank?
-          resource.errors.add(:password, "can't be blank")
-        end
-      end
-    end
+    # def update
+    #   super
+    # end
 
     # DELETE /resource
     # def destroy
