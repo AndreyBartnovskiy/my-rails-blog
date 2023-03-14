@@ -3,6 +3,7 @@ require:
   - rubocop-performance
   - rubocop-rake
   - rubocop-thread_safety
+  - rubocop-rspec
 
 AllCops:
   NewCops: enable

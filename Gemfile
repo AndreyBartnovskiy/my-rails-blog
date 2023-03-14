@@ -16,7 +16,6 @@ gem "bootsnap", ">= 1.4.4", require: false
 gem "pry", "~> 0.13.1"
 
 group :development, :test do
-  gem "byebug", platforms: %i[mri mingw x64_mingw]
   gem "factory_bot_rails"
   gem "faker"
   gem "rspec-rails", "~> 6.0.1"
@@ -24,6 +23,7 @@ group :development, :test do
   gem "rubocop-performance", require: false
   gem "rubocop-rails", require: false
   gem "rubocop-rake", require: false
+  gem "rubocop-rspec", require: false
   gem "rubocop-thread_safety", require: false
 end
 
