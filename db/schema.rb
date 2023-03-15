@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2023_03_15_073052) do
     t.text "body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "draft"
+    t.boolean "draft", default: false
   end
 
   create_table "users", force: :cascade do |t|
