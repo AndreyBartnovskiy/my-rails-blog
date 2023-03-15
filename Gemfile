@@ -11,6 +11,7 @@ gem "webpacker", "~> 5.0"
 gem "action_policy"
 gem "devise"
 gem "turbolinks", "~> 5"
+gem 'actiontext', '~> 6.1.7.2'
 
 gem "bootsnap", ">= 1.4.4", require: false
 gem "pry", "~> 0.13.1"
