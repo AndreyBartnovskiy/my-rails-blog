@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  include Authorization
   before_action :configure_permitted_parameters, if: :devise_controller?
   # колбэк указывает данный метод, который вызывается до действия любого девайс контроллера
   # с помощью этого метода можно добавлять различную реализацию работы иных параметров
