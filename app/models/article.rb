@@ -5,7 +5,7 @@ class Article < ApplicationRecord
 
   has_rich_text :body
 
-  enumerize :status, in: STATUSES, scope: :shallow, predicate: :true
+  enumerize :status, in: STATUSES, scope: :shallow, predicate: true
 
   scope :draft, -> { where(status: :draft) }
   scope :published, -> { where(status: :published) }
