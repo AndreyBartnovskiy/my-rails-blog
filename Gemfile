@@ -15,6 +15,7 @@ gem 'actiontext', '~> 6.1.7.2'
 
 gem "bootsnap", ">= 1.4.4", require: false
 gem "pry", "~> 0.13.1"
+gem "enumerize"
 
 group :development, :test do
   gem "factory_bot_rails"
