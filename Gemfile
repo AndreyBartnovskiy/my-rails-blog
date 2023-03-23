@@ -9,10 +9,12 @@ gem "sass-rails", ">= 6"
 gem "webpacker", "~> 5.0"
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem "action_policy"
+gem "actiontext", "~> 6.1.7.2"
 gem "devise"
 gem "turbolinks", "~> 5"
 
 gem "bootsnap", ">= 1.4.4", require: false
+gem "enumerize"
 gem "pry", "~> 0.13.1"
 
 group :development, :test do

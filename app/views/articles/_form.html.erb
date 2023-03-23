@@ -15,11 +15,14 @@
     <%= form.label :title %>
     <%= form.text_field :title %>
   </div>
-  
 
   <div class="field">
     <%= form.label :body %>
-    <%= form.text_area :body %>
+    <%= form.rich_text_area :body %>
+  </div>
+
+  <div>
+    <%= form.check_box :draft %>
   </div>
 
   <div class="actions">

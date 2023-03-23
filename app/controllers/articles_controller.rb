@@ -45,6 +45,11 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:title, :body)
+    params.require(:article).permit(:title, :body).merge(status: status_params)
+  end
+
+  def status_params
+    is_draft = params.require(:article).permit(:draft)[:draft]
+    is_draft == "1" ? "draft" : "published"
   end
 end
