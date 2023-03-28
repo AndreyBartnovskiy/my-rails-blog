@@ -22,7 +22,8 @@
   </div>
 
   <div>
-    <%= form.check_box :draft %>
+    <%= form.check_box :status, {}, :draft, :published %>
+    <%= form.label :draft, "Save as draft" %>
   </div>
 
   <div class="actions">
