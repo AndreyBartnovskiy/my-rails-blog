@@ -13,22 +13,10 @@
   <%= @article.status %>
 </p>
 
-<% if @article.status == 'draft' %>
-  <%= form_with(model: @article) do |form| %>
-    <%= form.hidden_field :draft, value: "0" %>
-
-    <div class="actions">
-      <%= form.submit "Publish article "%>
-    </div>
-  <% end %>
+<% if @article.status["draft"] %>
+  <%= button_to "Publish", article_publications_path(@article) %>
 <% else %>
-  <%= form_with(model: @article) do |form| %>
-    <%= form.hidden_field :draft, value: "1" %>
-
-    <div class="actions">
-      <%= form.submit "Unpublish article to draft "%>
-    </div>
-  <% end %>
+  <%= button_to "Unpublish", article_publication_path(@article), method: :delete %>
 <% end %>
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
