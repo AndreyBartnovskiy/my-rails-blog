@@ -13,7 +13,7 @@
   <%= @article.status %>
 </p>
 
-<% if @article.status["draft"] %>
+<% if @article.status.draft? %>
   <%= button_to "Publish", article_publications_path(@article) %>
 <% else %>
   <%= button_to "Unpublish", article_publication_path(@article), method: :delete %>
