@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: %i[index]
   before_action :set_article, only: %i[show edit update destroy]
   before_action -> { authorize! Article }, only: %i[index show new create]
-  before_action -> { authorize! @article }, only: %i[edit destroy]
+  before_action -> { authorize! @article }, only: %i[edit update destroy]
 
   def index
     @articles = authorized_scope(Article.all)

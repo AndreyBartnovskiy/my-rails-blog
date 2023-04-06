@@ -2,10 +2,10 @@ class ArticlePolicy < ApplicationPolicy
   authorize :user, allow_nil: true
 
   relation_scope do |relation|
-    if user.nil?
-      relation.published
-    else
+    if user.present?
       relation.where(user_id: user.id).or(relation.published)
+    else
+      relation.published
     end
   end
 
@@ -40,6 +40,6 @@ class ArticlePolicy < ApplicationPolicy
   private
 
   def owner?
-    user.present? && record.user == user
+    user.present? && record.user_id == user.id
   end
 end

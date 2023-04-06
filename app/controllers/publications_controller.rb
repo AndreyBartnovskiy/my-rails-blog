@@ -1,6 +1,6 @@
 class PublicationsController < ApplicationController
-  before_action :set_article, only: %i[create destroy]
-  before_action -> { authorize! @article }, only: %i[create destroy]
+  before_action :set_article
+  before_action -> { authorize! @article, with: PublicationPolicy }
 
   def create
     @article.update(status: :published)
