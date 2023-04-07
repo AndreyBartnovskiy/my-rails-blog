@@ -1,8 +1,11 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_user!, except: %i[index]
   before_action :set_article, only: %i[show edit update destroy]
+  before_action -> { authorize! Article }, only: %i[index show new create]
+  before_action -> { authorize! @article }, only: %i[edit update destroy]
 
   def index
-    @articles = Article.all
+    @articles = authorized_scope(Article.all)
   end
 
   def show
@@ -16,7 +19,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new(article_params)
+    @article = current_user.articles.build(article_params)
 
     if @article.save
       redirect_to article_url(@article), notice: "Article was successfully created."

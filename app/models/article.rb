@@ -3,6 +3,8 @@ class Article < ApplicationRecord
 
   STATUSES = %i[draft published].freeze
 
+  belongs_to :user
+
   has_rich_text :body
 
   enumerize :status, in: STATUSES, scope: :shallow, predicates: true
