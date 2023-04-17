@@ -9,6 +9,7 @@ gem "sass-rails", ">= 6"
 gem "webpacker", "~> 5.0"
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem "action_policy"
+gem "interactor"
 gem "actiontext", "~> 6.1.7.2"
 gem "devise"
 gem "turbolinks", "~> 5"
@@ -34,6 +35,7 @@ group :development do
   gem "rack-mini-profiler", "~> 2.0"
   gem "spring"
   gem "web-console", ">= 4.1.0"
+  gem "letter_opener"
 end
 
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
