@@ -10,6 +10,6 @@ Rails.application.routes.draw do
     resources :publications, only: %i[create destroy]
   end
 
-  resources :contacts
+  resources :contacts, only: %i[new create thanks]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

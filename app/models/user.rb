@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  include Enumerize
+  extend Enumerize
 
   STATUSES = %i[user admin].freeze
 
