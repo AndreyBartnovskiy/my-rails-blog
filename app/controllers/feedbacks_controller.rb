@@ -6,10 +6,10 @@ class FeedbacksController < ApplicationController
   end
 
   def create
-    @feedback = Feedback.new(params[:feedback])
+    @feedback = Feedback.new(feedback_params)
 
     if @feedback.save
-      AdminMailer.feedback_email(@feedback).deliver
+      AdminMailer.send_feedback_to_admin(@feedback).deliver
       render :thanks
     else
       render :new
@@ -19,5 +19,11 @@ class FeedbacksController < ApplicationController
   # Create a new feedback with mailer
 
   def thanks
+  end
+
+  private
+
+  def feedback_params
+    params.require(:feedback).permit(:email, :message, :name)
   end
 end

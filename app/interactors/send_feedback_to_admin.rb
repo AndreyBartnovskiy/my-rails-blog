@@ -2,7 +2,7 @@ class SendFeedbackToAdmin
   include Interactor
 
   def call
-    AdminMailer.contact_email.deliver
+    AdminMailer.send_feedback_to_admin(feedback).deliver
   end
 end
 
