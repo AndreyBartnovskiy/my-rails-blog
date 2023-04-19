@@ -15,8 +15,6 @@ class FeedbacksController < ApplicationController
       render :new
     end
   end
-  # redirect_to new_feedback_path, notice: "You can leave feedback to the admin"
-  # Create a new feedback with mailer
 
   def thanks
   end
