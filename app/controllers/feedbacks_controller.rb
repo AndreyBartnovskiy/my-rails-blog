@@ -6,24 +6,17 @@ class FeedbacksController < ApplicationController
   end
 
   def create
-    call_action(send_feedback)
+    result = Feedbacks::Action.new.call(params)
+
+    if result.success?
+      flash.now[:notice] = "Feedback sent successfully"
+      render :thanks
+    else
+      flash.now[:alert] = result.failure[:message]
+      render :new
+    end
   end
 
   def thanks
   end
-
-  private
-
-  def send_feedback
-    Feedbacks::SendFeedback::Action.new
-  end
 end
-
-# #     @feedback = Feedback.new(feedback_params)
-# def create
-# if @feedback.save
-#   AdminMailer.send_feedback_to_admin(@feedback).deliver
-#   render :thanks
-# else
-#   render :new
-# end

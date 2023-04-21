@@ -11,16 +11,4 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name])
     devise_parameter_sanitizer.permit(:account_update, keys: %i[first_name last_name])
   end
-
-  private
-
-  def call_action(action)
-    action.call(request) do |result|
-      result.success { |status:| head status }
-
-      result.failure(:feedback_error) { head :forbidden }
-
-      result.failere { head :server_error }
-    end
-  end
 end

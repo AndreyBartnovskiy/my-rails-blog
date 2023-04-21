@@ -1,23 +1,24 @@
+require "dry-monads"
+
 module Feedbacks
   module SendFeedback
     class CreateFeedback
-      include Dry::Monads[:do, :result, :try]
+      include Dry::Monads[:result]
 
-      def call(request)
-        params = ActionController::Parameters.new(request.params)
-        model = yield deserialize(params)
+      def call(_params)
+        feedback = Feedback.new(feedback_params)
 
-        Success([model])
+        if feedback.valid?
+          Success(feedback)
+        else
+          Failure(feedback.errors.full_messages.join(", "))
+        end
       end
 
       private
 
-      def deserialize(params)
-        res = Try[ActionController::ParameterMissing] do
-          params.require(:feedback).permit(:email, :message, :name)
-        end
-
-        res.error ? Failure(deserialize) : res
+      def feedback_params
+        params.require(:feedback).permit(:email, :message, :name)
       end
     end
   end
