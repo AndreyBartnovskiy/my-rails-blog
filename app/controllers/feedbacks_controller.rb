@@ -6,7 +6,7 @@ class FeedbacksController < ApplicationController
   end
 
   def create
-    result = Feedbacks::Action.new.call(params)
+    result = Feedbacks::Action.new.call(feedback_params)
 
     if result.success?
       flash.now[:notice] = "Feedback sent successfully"
@@ -18,5 +18,11 @@ class FeedbacksController < ApplicationController
   end
 
   def thanks
+  end
+
+  private
+
+  def feedback_params
+    params.require(:feedback).permit(:email, :name, :message)
   end
 end

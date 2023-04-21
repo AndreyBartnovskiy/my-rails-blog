@@ -4,8 +4,8 @@ module Feedbacks
   class Action
     include Dry::Monads[:do, :result]
 
-    def call(params)
-      feedback = yield create_feedback.call(params)
+    def call(feedback_params)
+      feedback = yield create_feedback.call(feedback_params)
       yield send_feedback_to_admin.call(feedback)
 
       Success()

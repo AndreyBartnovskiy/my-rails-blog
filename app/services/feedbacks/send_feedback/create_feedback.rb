@@ -5,7 +5,7 @@ module Feedbacks
     class CreateFeedback
       include Dry::Monads[:result]
 
-      def call(_params)
+      def call(feedback_params)
         feedback = Feedback.new(feedback_params)
 
         if feedback.valid?
@@ -13,12 +13,6 @@ module Feedbacks
         else
           Failure(feedback.errors.full_messages.join(", "))
         end
-      end
-
-      private
-
-      def feedback_params
-        params.require(:feedback).permit(:email, :message, :name)
       end
     end
   end
