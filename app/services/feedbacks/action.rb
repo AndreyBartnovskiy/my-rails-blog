@@ -16,8 +16,8 @@ module Feedbacks
     attr_reader :create_feedback, :send_feedback_to_admin
 
     def initialize
-      @create_feedback = SendFeedback::CreateFeedback.new
-      @send_feedback_to_admin = SendFeedback::SendFeedbackToAdmin.new
+      @create_feedback = ContactToAdmin::Save.new
+      @send_feedback_to_admin = ContactToAdmin::SendNotification.new
     end
   end
 end

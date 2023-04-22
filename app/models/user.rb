@@ -1,11 +1,11 @@
 class User < ApplicationRecord
   extend Enumerize
 
-  STATUSES = %i[user admin].freeze
+  ROLES = %i[user admin].freeze
 
   has_many :articles, dependent: :destroy
 
-  enumerize :status, in: STATUSES, scope: :shallow, predicate: true
+  enumerize :role, in: ROLES, scope: :shallow, predicates: true
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

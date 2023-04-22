@@ -42,7 +42,7 @@ class ArticlePolicy < ApplicationPolicy
   private
 
   def admin?
-    user.present? && user.role == "admin"
+    user&.role&.admin?
   end
 
   def owner?
