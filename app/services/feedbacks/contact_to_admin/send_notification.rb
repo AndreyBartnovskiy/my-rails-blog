@@ -1,7 +1,7 @@
 require "dry-monads"
 
 module Feedbacks
-  module ContactToAdmin
+  class ContactToAdmin
     class SendNotification
       include Dry::Monads[:result]
 

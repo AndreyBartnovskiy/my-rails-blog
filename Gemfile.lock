@@ -84,10 +84,20 @@ GEM
     dry-core (1.0.0)
       concurrent-ruby (~> 1.0)
       zeitwerk (~> 2.6)
+    dry-events (1.0.1)
+      concurrent-ruby (~> 1.0)
+      dry-core (~> 1.0, < 2)
+    dry-matcher (0.10.0)
+      dry-core (~> 1.0)
     dry-monads (1.6.0)
       concurrent-ruby (~> 1.0)
       dry-core (~> 1.0, < 2)
       zeitwerk (~> 2.6)
+    dry-transaction (0.15.0)
+      dry-core (~> 1.0)
+      dry-events (~> 1.0)
+      dry-matcher (~> 0.10)
+      dry-monads (~> 1.6)
     enumerize (2.5.0)
       activesupport (>= 3.2)
     erubi (1.12.0)
@@ -289,6 +299,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   devise
   dry-monads
+  dry-transaction
   enumerize
   factory_bot_rails
   faker

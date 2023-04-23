@@ -13,6 +13,7 @@ gem "actiontext", "~> 6.1.7.2"
 gem "bootsnap", ">= 1.4.4", require: false
 gem "devise"
 gem "dry-monads"
+gem "dry-transaction"
 gem "enumerize"
 gem "pry", "~> 0.13.1"
 gem "turbolinks", "~> 5"
