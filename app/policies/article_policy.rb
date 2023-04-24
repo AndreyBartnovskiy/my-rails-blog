@@ -2,7 +2,9 @@ class ArticlePolicy < ApplicationPolicy
   authorize :user, allow_nil: true
 
   relation_scope do |relation|
-    if user.present?
+    if admin?
+      relation.all
+    elsif user.present?
       relation.where(user_id: user.id).or(relation.published)
     else
       relation.published
@@ -26,7 +28,7 @@ class ArticlePolicy < ApplicationPolicy
   end
 
   def destroy?
-    owner?
+    owner? || admin?
   end
 
   def edit?
@@ -34,10 +36,14 @@ class ArticlePolicy < ApplicationPolicy
   end
 
   def update?
-    owner?
+    owner? || admin?
   end
 
   private
+
+  def admin?
+    user&.role&.admin?
+  end
 
   def owner?
     user.present? && record.user_id == user.id
