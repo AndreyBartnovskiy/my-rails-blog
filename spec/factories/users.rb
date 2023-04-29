@@ -4,7 +4,9 @@ FactoryBot.define do
     last_name { "Doe" }
     email { Faker::Internet.email }
     password { "password" }
-    password_confirmation { "password" }
-    confirmed_at { Time.zone.now }
+
+    trait :admin do
+      role { :admin }
+    end
   end
 end
